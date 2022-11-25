@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardList from "../components/CardList";
 import Layout from "../components/Layout";
@@ -9,16 +9,57 @@ import { getKampus } from "../redux/action/listKampusAction";
 function Detail() {
   const state = useSelector((state) => state.listKampus);
   const dispatch = useDispatch();
+  const [search, setSearch] = useState("");
+  const [dataFilter, setDataFilter] = useState([])
+
+  const handleInput = (e) => {
+    setSearch(e.target.value)
+    let updatedList = [...state.list]
+
+    updatedList = updatedList.filter((item) => {
+      console.log(item.namaKampus.toLowerCase().indexOf(search.toLowerCase()) !== -1);
+      return item.namaKampus.toLowerCase().indexOf(search.toLowerCase()) !== -1
+    })
+
+    setDataFilter(updatedList)
+  }
+
 
   useEffect(() => {
     dispatch(getKampus());
   }, []);
-  
+
   return (
     <Layout>
       <Nav />
+      <div className="row">
+        <div className="col-md-5 mx-auto my-5">
+          <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
+            <label className="visually-hidden">Kampus</label>
+            <input
+              type="text"
+              className="form-control"
+              id="specificSizeInputName"
+              placeholder="Cari Kampus"
+              value={search}
+              onChange={handleInput}
+            />
+            <a
+              name=""
+              id=""
+              className="btn btn-primary ms-2"
+              href="#"
+              role="button"
+            >
+              Cari
+            </a>
+          </form>
+        </div>
+      </div>
+
       <ListKampus>
-        {state.list.map((el) => (
+        {dataFilter == 0 ? (<><p>Tidak Ada Hasil</p></>):console.log('isi')}
+        {dataFilter.map((el) => (
           <div key={el.id} className="col-lg-3 mb-4">
             <CardList
               key={el.id}
