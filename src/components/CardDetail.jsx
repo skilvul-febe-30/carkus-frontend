@@ -174,6 +174,7 @@ export default function CardDetail({ data }) {
                             name={el.name}
                             diskusi={el.diskusi}
                             createdAt={el.createdAt}
+                            idThread={el.id}
                           />
                         </div>
                       ))}

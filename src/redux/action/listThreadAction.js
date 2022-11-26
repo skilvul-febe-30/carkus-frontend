@@ -1,9 +1,7 @@
 import axios from "axios";
 
-
 export const GET_THREAD = "GET_THREAD";
 export const FETCH_START = "FETCH_START";
-
 
 function fetchStartThread() {
   return {
@@ -33,12 +31,25 @@ export const getThread = (id) => {
 export const uploadThread = (data, id) => {
   return async (dispatch) => {
     axios
-    .post(
-      `https://6350376e78563c1d82bca248.mockapi.io/kampus/${id}/diskusi`,
-      data
-    )
-    .then((res) => {
-      dispatch(getThread(id))
-    });
-  }
+      .post(
+        `https://6350376e78563c1d82bca248.mockapi.io/kampus/${id}/diskusi`,
+        data
+      )
+      .then((res) => {
+        dispatch(getThread(id));
+      });
+  };
+};
+
+export const deleteThread = (idKampus, idThread) => {
+  return async (dispatch) => {
+    axios
+      .delete(
+        `https://6350376e78563c1d82bca248.mockapi.io/kampus/${idKampus}/diskusi/${idThread}`
+      )
+      .then((res) => {
+        alert("Thread berhasil dihapus");
+        dispatch(getThread(id));
+      });
+  };
 };
