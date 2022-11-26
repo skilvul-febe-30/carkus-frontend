@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import CardList from "../components/CardList";
 import Layout from "../components/Layout";
 import ListKampus from "../components/ListKampus";
@@ -10,20 +11,19 @@ function Detail() {
   const state = useSelector((state) => state.listKampus);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
-  const [dataFilter, setDataFilter] = useState([])
+  const [dataFilter, setDataFilter] = useState([]);
+
 
   const handleInput = (e) => {
-    setSearch(e.target.value)
-    let updatedList = [...state.list]
+    setSearch(e.target.value);
+    let updatedList = [...state.list];
 
     updatedList = updatedList.filter((item) => {
-      console.log(item.namaKampus.toLowerCase().indexOf(search.toLowerCase()) !== -1);
-      return item.namaKampus.toLowerCase().indexOf(search.toLowerCase()) !== -1
-    })
+      return item.namaKampus.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    });
 
-    setDataFilter(updatedList)
-  }
-
+    setDataFilter(updatedList);
+  };
 
   useEffect(() => {
     dispatch(getKampus());
@@ -58,18 +58,33 @@ function Detail() {
       </div>
 
       <ListKampus>
-        {dataFilter == 0 ? (<><p>Tidak Ada Hasil</p></>):console.log('isi')}
-        {dataFilter.map((el) => (
-          <div key={el.id} className="col-lg-3 mb-4">
-            <CardList
-              key={el.id}
-              namaKampus={el.namaKampus}
-              lokasi={el.lokasi}
-              urlImg={el.image}
-              id={el.id}
-            />
-          </div>
-        ))}
+        {search == "" &&
+          state.list.map((el) => (
+            <div key={el.id} className="col-lg-3 mb-4">
+              <CardList
+                key={el.id}
+                namaKampus={el.namaKampus}
+                lokasi={el.lokasi}
+                urlImg={el.image}
+                id={el.id}
+              />
+            </div>
+          ))}
+
+        {dataFilter != 0 &&
+          dataFilter.map((el) => (
+            <>
+              <div key={el.id} className="col-lg-3 mb-4">
+                <CardList
+                  key={el.id}
+                  namaKampus={el.namaKampus}
+                  lokasi={el.lokasi}
+                  urlImg={el.image}
+                  id={el.id}
+                />
+              </div>
+            </>
+          ))}
       </ListKampus>
     </Layout>
   );
