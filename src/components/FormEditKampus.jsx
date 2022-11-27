@@ -118,6 +118,11 @@ export default function FormEditKampus() {
               </button>
             </div>
           </div>
+          <div className="row mt-3 text-center">
+            <div className="col-12">
+            <button type="button" class="btn btn-primary col-4">Simpan</button>
+            </div>
+          </div>
         </div>
       </div>
     </>

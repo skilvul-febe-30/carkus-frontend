@@ -4,7 +4,7 @@ export default function InputFakultas(indeks) {
     
   return (
     <>
-      <div className="row mt-2" key={indeks}>
+      <div className="row mt-2 border-bottom" key={indeks}>
         <div className="col-md-7">
           <label htmlFor="namaFakultas" className="form-label">
             Nama Fakultas
@@ -32,7 +32,7 @@ export default function InputFakultas(indeks) {
             <option value="4">Belum Terakreditasi</option>
           </select>
         </div>
-        <div className="col-md-2">
+        <div className="col-md-2 mb-2">
           <label htmlFor="jumlahProdi" className="form-label">
             Jumlah Prodi
           </label>
