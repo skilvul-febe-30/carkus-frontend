@@ -1,4 +1,5 @@
 import React from "react";
+import InputFakultas from "./InputFakultas";
 
 export default function FormEditKampus() {
   return (
@@ -34,7 +35,7 @@ export default function FormEditKampus() {
           <h5 className="card-title mt-3">Profile Kampus</h5>
           <div className="row mt-3 border-bottom">
             <div className="col-md-6">
-              <label for="namaUniversitas" className="form-label">
+              <label htmlFor="namaUniversitas" className="form-label">
                 Nama Universitas
               </label>
               <input
@@ -45,7 +46,7 @@ export default function FormEditKampus() {
               />
             </div>
             <div className="col-md-3">
-              <label for="akreditasi" className="form-label">
+              <label htmlFor="akreditasi" className="form-label">
                 Akreditasi
               </label>
               <select
@@ -53,7 +54,7 @@ export default function FormEditKampus() {
                 aria-label="Default select example"
                 id="akreditasi"
               >
-                <option selected>Pilih Akreditasi</option>
+                <option defaultValue>Pilih Akreditasi</option>
                 <option value="1">A</option>
                 <option value="2">B</option>
                 <option value="3">C</option>
@@ -61,7 +62,7 @@ export default function FormEditKampus() {
               </select>
             </div>
             <div className="col-md-3">
-              <label for="status" className="form-label">
+              <label htmlFor="status" className="form-label">
                 Status
               </label>
               <select
@@ -69,14 +70,14 @@ export default function FormEditKampus() {
                 aria-label="Default select example"
                 id="status"
               >
-                <option selected>Pilih Status</option>
+                <option defaultValue>Pilih Status</option>
                 <option value="1">PTN</option>
                 <option value="2">PTS</option>
                 <option value="3">Politeknik</option>
               </select>
             </div>
             <div className="col-12 mt-2">
-              <label for="lokasiUniversitas" className="form-label">
+              <label htmlFor="lokasiUniversitas" className="form-label">
                 Lokasi Universitas
               </label>
               <input
@@ -87,7 +88,7 @@ export default function FormEditKampus() {
               />
             </div>
             <div className="col-12 mt-2">
-              <label for="informasiUmum" className="form-label">
+              <label htmlFor="informasiUmum" className="form-label">
                 Informasi Umum
               </label>
               <textarea
@@ -100,52 +101,13 @@ export default function FormEditKampus() {
           </div>
 
           <h5 className="card-title mt-3">Fakultas</h5>
-          <div className="row mt-2">
-            <div className="col-md-7">
-              <label for="namaFakultas" className="form-label">
-                Nama Fakultas
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="namaFakultas"
-                placeholder="Fakultas Pertanian"
-              />
-            </div>
-            <div className="col-md-3">
-              <label for="akreditasiFakultas" className="form-label">
-                Akreditasi Fakultas
-              </label>
-              <select
-                className="form-select"
-                aria-label="Default select example"
-                id="akreditasiFakultas"
-              >
-                <option selected>Pilih Akreditasi</option>
-                <option value="1">A</option>
-                <option value="2">B</option>
-                <option value="3">C</option>
-                <option value="4">Belum Terakreditasi</option>
-              </select>
-            </div>
-            <div className="col-md-2">
-              <label for="jumlahProdi" className="form-label">
-                Jumlah Prodi
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="jumlahProdi"
-                placeholder="5"
-              />
-            </div>
-          </div>
+          <InputFakultas />
           <div className="row mt-2 border-bottom">
             <div className="col-12 mt-3 mb-3 text-end">
-              <button type="button" class="btn btn-danger me-2">
+              <button type="button" className="btn btn-danger me-2">
                 Hapus
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="button" className="btn btn-primary">
                 Tambah
               </button>
             </div>
