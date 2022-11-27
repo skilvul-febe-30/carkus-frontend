@@ -3,7 +3,7 @@ import InputFakultas from "./InputFakultas";
 
 export default function FormEditKampus() {
   const [countFakultas, setCountFakultas] = useState(0)
-  
+  const [linkGambar, setlinkGambar] = useState("")
   return (
     <>
       <div className="card">
@@ -13,7 +13,7 @@ export default function FormEditKampus() {
           <div className="row mt-3 border-bottom">
             <div className="col-xl-2 pb-3 text-center">
               <img
-                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                src={linkGambar == "" ? "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" : linkGambar}
                 alt=""
                 style={{ height: "185px" }}
                 className="rounded-3"
@@ -29,6 +29,8 @@ export default function FormEditKampus() {
                   className="form-control"
                   id="linkImage"
                   placeholder="https://cdn.pixabay.com/blank-profile-picture.png"
+                  value={linkGambar}
+                  onChange={(e) => setlinkGambar(e.target.value)}
                 />
               </div>
             </div>
