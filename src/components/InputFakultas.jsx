@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function InputFakultas() {
+export default function InputFakultas(indeks) {
+    
   return (
     <>
-      <div className="row mt-2">
+      <div className="row mt-2" key={indeks}>
         <div className="col-md-7">
           <label htmlFor="namaFakultas" className="form-label">
             Nama Fakultas

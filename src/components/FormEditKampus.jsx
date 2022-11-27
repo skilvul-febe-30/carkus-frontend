@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import InputFakultas from "./InputFakultas";
 
 export default function FormEditKampus() {
+  const [countFakultas, setCountFakultas] = useState(0)
+  
   return (
     <>
       <div className="card">
@@ -101,13 +103,15 @@ export default function FormEditKampus() {
           </div>
 
           <h5 className="card-title mt-3">Fakultas</h5>
-          <InputFakultas />
+          {[...Array(countFakultas)].map(index => (
+            <InputFakultas indeks={index}/>
+          ))}
           <div className="row mt-2 border-bottom">
             <div className="col-12 mt-3 mb-3 text-end">
-              <button type="button" className="btn btn-danger me-2">
+              <button type="button" className="btn btn-danger me-2" onClick={() => setCountFakultas(countFakultas == 0 ? 0:countFakultas-1)}>
                 Hapus
               </button>
-              <button type="button" className="btn btn-primary">
+              <button type="button" className="btn btn-primary" onClick={() => setCountFakultas(countFakultas+1)}>
                 Tambah
               </button>
             </div>
