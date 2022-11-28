@@ -20,7 +20,7 @@ export default function ListKampus({children}) {
                 <a
                   name=""
                   id=""
-                  className="btn btn-primary ms-2"
+                  className="btn btn-primary ms-3"
                   href="#"
                   role="button"
                 >
