@@ -12,14 +12,14 @@ export default function FormEditKampus() {
   const [informasi, setinformasi] = useState("");
 
   const indeksFakultas = () => {
-    let arr = []
+    let arr = [];
 
     for (let index = 0; index < countFakultas; index++) {
-      arr.push(index)
+      arr.push(index);
     }
 
-    return arr
-  }
+    return arr;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,13 +30,14 @@ export default function FormEditKampus() {
       status,
       lokasi,
       informasi,
+      listFakultas,
     };
 
     console.log(dataKampus);
     console.log(listFakultas);
   };
 
-  console.log(listFakultas)
+  console.log(listFakultas);
   return (
     <>
       <div className="card">
@@ -153,7 +154,11 @@ export default function FormEditKampus() {
 
           <h5 className="card-title mt-3">Fakultas</h5>
           {indeksFakultas().map((item, index) => (
-            <InputFakultas indeks={index} listFakultas = {listFakultas} setlistFakultas = {setlistFakultas} />
+            <InputFakultas
+              indeks={index}
+              listFakultas={listFakultas}
+              setlistFakultas={setlistFakultas}
+            />
           ))}
           <div className="row mt-2 border-bottom">
             <div className="col-12 mt-3 mb-3 text-end">
@@ -188,6 +193,8 @@ export default function FormEditKampus() {
           </div>
         </div>
       </div>
+      {listFakultas ? listFakultas.map(e => (<p>{e.nama}</p>)) : (<p>ga ada</p>)}
+      <p>test</p>
     </>
   );
 }

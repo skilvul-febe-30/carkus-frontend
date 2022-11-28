@@ -1,19 +1,29 @@
 import React, { useState } from "react";
 
 export default function InputFakultas({indeks, listFakultas, setlistFakultas}) {
-  const [fakultas, setFakultas] = useState({
+  const initialState = {
     nama: "",
     akreditasi: "",
     jumlahProdi: 0
-  })
+  }
+  
+  const [fakultas, setFakultas] = useState(initialState)
 
     const handleInputFakultas = (e) => {
       const copyListFakultas = [...listFakultas]
-      const inputFakultas = e.target.value
+      
+      console.log(e.target.value);
 
-      setFakultas({
-        ...fakultas,
-        nama : inputFakultas
+      // setFakultas({
+      //   ...fakultas,
+      //   nama : e.target.value
+      // })
+
+      setFakultas(curr => {
+        return {
+          ...curr,
+          nama: e.target.value
+        }
       })
 
       copyListFakultas[indeks] = fakultas
@@ -68,6 +78,11 @@ export default function InputFakultas({indeks, listFakultas, setlistFakultas}) {
           />
         </div>
       </div>
+      {/* {fakultas? (
+        <p>{fakultas.nama}</p>
+      ):(
+        <p>ga ada</p>
+      )} */}
     </>
   );
 }
