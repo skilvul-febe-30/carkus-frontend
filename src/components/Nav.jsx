@@ -1,21 +1,23 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   const navigate = useNavigate();
-
-  const signOut = () => {
-    navigate("/");
-    localStorage.clear();
-  };
 
   return (
     <>
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link
+            className="text-decoration-none py-3 fw-bold"
+            to="/detail"
+          >
             CARKUS
-          </a>
+          </Link>
+          {/* <a className="navbar-brand fw-bold" onClick={brand}>
+            CARKUS
+          </a> */}
           <button
             className="navbar-toggler"
             type="button"
@@ -50,31 +52,10 @@ export default function Nav() {
                 </a>
               </li>
             </ul>
-            <div className="profil dropdown d-flex">
-              <i className="fa-solid fa-circle-user fa-2x"></i>
-              <a
-                className="nav-link dropdown-toggle my-auto ms-3"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Profil
-              </a>
-              <ul className="dropdown-menu dropdown-menu-dark">
-                <li>
-                  <a className="dropdown-item">Profil</a>
-                </li>
-                <li>
-                  <a className="dropdown-item">Setting</a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" onClick={signOut}>Sign Out</a>
-                </li>
-              </ul>
+            <div>
+              <Link to="/profil">
+                <i className="far fa-circle-user fa-2x"></i>
+              </Link>
             </div>
           </div>
         </div>
