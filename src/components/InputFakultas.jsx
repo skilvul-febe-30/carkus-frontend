@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function InputFakultas(indeks) {
-    
+export default function InputFakultas({indeks, listFakultas, setlistFakultas}) {
+  const [fakultas, setFakultas] = useState({
+    nama: "",
+    akreditasi: "",
+    jumlahProdi: 0
+  })
+
+    const handleInputFakultas = (e) => {
+      const copyListFakultas = [...listFakultas]
+      const inputFakultas = e.target.value
+
+      setFakultas({
+        ...fakultas,
+        nama : inputFakultas
+      })
+
+      copyListFakultas[indeks] = fakultas
+
+      setlistFakultas([
+        ...copyListFakultas,
+      ])
+    }
+
+    console.log(fakultas);
   return (
     <>
       <div className="row mt-2 border-bottom" key={indeks}>
@@ -14,6 +36,8 @@ export default function InputFakultas(indeks) {
             className="form-control"
             id="namaFakultas"
             placeholder="Fakultas Pertanian"
+            value={fakultas.nama}
+            onChange={handleInputFakultas}
           />
         </div>
         <div className="col-md-3">
