@@ -13,13 +13,62 @@ function EditProfile() {
             className="text-decoration-none text-black py-3 d-flex"
             to="/profil"
           >
-            <i class="fas fa-chevron-left text-decoration-none my-auto me-2"></i>
+            <i className="fas fa-chevron-left text-decoration-none my-auto me-2"></i>
             <h5 className="text-decoration-none my-auto">
               {" "}
               Edit Profile
             </h5>
           </Link>
         </div>
+        <div className="mb-3">
+						<label className="form-label">
+							Nama Depan
+						</label>
+						<input
+							type="text"
+							className="form-control"
+							id="namaDepan"
+							placeholder="Nama Depan"
+						/>
+					</div>
+          <div className="mb-3">
+						<label className="form-label">
+							Nama Belakang
+						</label>
+						<input
+							type="text"
+							className="form-control"
+							id="namaBelakang"
+							placeholder="Nama Belakang"
+						/>
+					</div>
+          <div className="mb-3">
+						<label className="form-label">
+							Ubah Email
+						</label>
+						<input
+							type="text"
+							className="form-control"
+							id="email"
+							placeholder="jhondoe@gmail.com"
+						/>
+					</div>
+          <div className="mb-3">
+						<label className="form-label">
+							Ubah Password
+						</label>
+						<input
+							type="password"
+							className="form-control"
+							id="password"
+							placeholder="Kata Sandi"
+						/>
+					</div>
+          <div className="text-end">
+						<button className="btn btn-primary mt-4 mb-5">
+							Simpan
+						</button>
+					</div>
       </div>
     </Layout>
   );
