@@ -27,7 +27,7 @@ export default function Login() {
       alert("password atau username salah");
     } else {
       localStorage.setItem("name", user.firstName);
-      navigate("/detail");
+      navigate("/beranda");
     }
   };
 
