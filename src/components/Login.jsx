@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../redux/action/listUserAction";
 
+
 export default function Login() {
   const [emailUser, setEmailUser] = useState("");
   const [passwordUser, setPasswordUser] = useState("");
@@ -26,7 +27,7 @@ export default function Login() {
       alert("password atau username salah");
     } else {
       localStorage.setItem("name", user.firstName);
-      navigate("/detail");
+      navigate("/beranda");
     }
   };
 
