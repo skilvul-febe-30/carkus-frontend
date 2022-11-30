@@ -5,7 +5,7 @@ export default function ListKampus({children}) {
     <div>
       <section id="content">
         <div className="container">
-          <div className="row">
+          {/* <div className="row">
             <div className="col-md-5 mx-auto my-5">
               <form className="d-flex">
                 <label className="visually-hidden">
@@ -20,7 +20,7 @@ export default function ListKampus({children}) {
                 <a
                   name=""
                   id=""
-                  className="btn btn-primary ms-3"
+                  className="btn btn-primary ms-2"
                   href="#"
                   role="button"
                 >
@@ -28,7 +28,7 @@ export default function ListKampus({children}) {
                 </a>
               </form>
             </div>
-          </div>
+          </div> */}
           <div className="row" id="listCard">
             {children}
           </div>
