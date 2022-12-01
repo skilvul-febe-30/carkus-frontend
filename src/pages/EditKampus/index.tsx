@@ -5,7 +5,7 @@ import Layout from "../../components/Layout";
 import Nav from "../../components/Nav";
 import { useAppDispatch } from "../../hooks";
 import { fetchCampus } from "../../redux/reducers/campus";
-import { Faculty } from "../../types/Campus";
+import type { Faculty } from "../../types/Campus";
 import InputFakultas from "./components/InputFakultas";
 
 export default function EditKampus() {

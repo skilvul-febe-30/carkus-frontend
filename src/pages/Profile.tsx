@@ -4,7 +4,7 @@ import { getUserById } from "../api/user";
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
 import { useAppSelector } from "../hooks";
-import { User } from "../types/User";
+import type { User } from "../types/User";
 
 export default function Profile() {
   const userId = useAppSelector((state) => state.authState.userId) ?? "";

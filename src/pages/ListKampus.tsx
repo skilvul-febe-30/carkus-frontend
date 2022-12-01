@@ -3,7 +3,7 @@ import { getCampus } from "../api/campus";
 import KampusCard from "../components/KampusCard";
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
-import { Campus } from "../types/Campus";
+import type { Campus } from "../types/Campus";
 
 export default function ListKampus() {
   const [search, setSearch] = useState("");

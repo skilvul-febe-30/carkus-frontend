@@ -1,5 +1,5 @@
 import { store } from "../redux/store";
-import { Campus } from "../types/Campus";
+import type { Campus } from "../types/Campus";
 import axios from "./axios";
 
 export function getCampus() {

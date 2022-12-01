@@ -5,7 +5,7 @@ import { getUserById } from "../../../api/user";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { fetchCampus } from "../../../redux/reducers/campus";
 import type { Thread } from "../../../types/Thread";
-import { User } from "../../../types/User";
+import type { User } from "../../../types/User";
 import { formatTime } from "../../../utils/formatTime";
 import KomentarThread from "./KomentarThread";
 
