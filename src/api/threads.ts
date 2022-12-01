@@ -1,3 +1,4 @@
+import { store } from "../redux/store";
 import type { Thread } from "../types/Thread";
 import axios from "./axios";
 
@@ -9,7 +10,8 @@ export function getThreadById(campusId: string, threadId: string) {
   return axios.get(`/campus/${campusId}/threads/${threadId}`);
 }
 
-export function createThread(campusId: string, token: string, thread: Pick<Thread, "title" | "content">) {
+export function createThread(campusId: string, thread: Pick<Thread, "title" | "content">) {
+  const token = store.getState().authState.token;
   return axios.post(`/campus/${campusId}/threads`, thread, {
     headers: {
       Authorization: `Bearer ${token}`,

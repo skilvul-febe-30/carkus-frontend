@@ -28,7 +28,7 @@ export default function DetailKampus() {
       return navigate("/login");
     }
     try {
-      await createThread(campusId, token, {
+      await createThread(campusId, {
         title: "Title",
         content: threadContent,
       });
