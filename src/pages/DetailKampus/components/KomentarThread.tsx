@@ -4,11 +4,7 @@ import type { ThreadComment } from "../../../types/ThreadComment";
 import type { User } from "../../../types/User";
 import { formatTime } from "../../../utils/formatTime";
 
-export default function KomentarThread({
-  content,
-  createdAt,
-  author: authorId,
-}: ThreadComment) {
+export default function KomentarThread({ content, createdAt, author: authorId }: ThreadComment) {
   const [author, setAuthor] = useState<User | null>(null);
   useEffect(() => {
     getUserById(authorId).then((res) => {
@@ -30,9 +26,7 @@ export default function KomentarThread({
               <p className="my-auto">
                 <strong>{author.username}</strong>
               </p>
-              <p className="ms-auto my-auto text-muted">
-                {formatTime(createdAt)}
-              </p>
+              <p className="ms-auto my-auto text-muted">{formatTime(createdAt)}</p>
             </div>
             <p className="my-auto mb-2">{content}</p>
           </div>

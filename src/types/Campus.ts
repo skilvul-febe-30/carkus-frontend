@@ -1,10 +1,8 @@
 import type { Thread } from "./Thread";
 
-export type Accreditation = "A" | "B" | "C";
-
 export interface Faculty {
   name: string;
-  accreditation: Accreditation;
+  accreditation: string;
 }
 
 export interface Campus {
@@ -12,8 +10,8 @@ export interface Campus {
   name: string;
   address: string;
   description: string;
-  accreditation: Accreditation;
-  status: "PTN" | "PTS";
+  accreditation: string;
+  status: string;
   faculties: Faculty[];
   admin: string;
   links: {

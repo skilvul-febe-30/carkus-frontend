@@ -19,8 +19,8 @@ export default function Bantuan() {
                 Kenapa saya tidak menemukan kampus yang saya inginkan?
               </li>
               <li className="list-group-item list-group-flush">
-                Jika kamu tidak bisa menemukan kampus yang sedang kamu cari,
-                berarti kampus tersebut belum terdaftar pada website kami.
+                Jika kamu tidak bisa menemukan kampus yang sedang kamu cari, berarti kampus tersebut belum terdaftar
+                pada website kami.
               </li>
             </ul>
             <ul className="list-group list-group-flush">
@@ -28,9 +28,7 @@ export default function Bantuan() {
                 <i className="fa fa-check-double primary"></i>
                 Bagaimana cara mengetahui keketatan jurusan?
               </li>
-              <li className="list-group-item list-group-flush">
-                Kamu bisa pergi ke detail kampus yang kamu inginkan.
-              </li>
+              <li className="list-group-item list-group-flush">Kamu bisa pergi ke detail kampus yang kamu inginkan.</li>
             </ul>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
@@ -38,8 +36,7 @@ export default function Bantuan() {
                 Bagaimana cara memulai diskusi di kampus yang saya ingin?
               </li>
               <li className="list-group-item list-group-flush">
-                Kamu bisa pergi ke kampus yang kamu inginkan, di sana terdesedia
-                tab untuk ruang diskusi.
+                Kamu bisa pergi ke kampus yang kamu inginkan, di sana terdesedia tab untuk ruang diskusi.
               </li>
             </ul>
           </div>

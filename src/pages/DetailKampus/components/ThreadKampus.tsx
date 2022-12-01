@@ -9,13 +9,7 @@ import { User } from "../../../types/User";
 import { formatTime } from "../../../utils/formatTime";
 import KomentarThread from "./KomentarThread";
 
-export default function ThreadKampus({
-  _id,
-  content,
-  createdAt,
-  author: authorId,
-  comments,
-}: Thread) {
+export default function ThreadKampus({ _id, content, createdAt, author: authorId, comments }: Thread) {
   const { campusId } = useParams();
   const dispatch = useAppDispatch();
   const { userId } = useAppSelector((state) => state.authState);
@@ -92,12 +86,7 @@ export default function ThreadKampus({
                 value={commentContent}
                 onChange={(e) => setCommentContent(e.target.value)}
               />
-              <button
-                className="btn btn-primary"
-                type="button"
-                id="button-addon2"
-                onClick={onSubmit}
-              >
+              <button className="btn btn-primary" type="button" id="button-addon2" onClick={onSubmit}>
                 Komentar
               </button>
             </div>

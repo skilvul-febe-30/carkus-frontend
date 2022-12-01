@@ -49,11 +49,7 @@ export default function DetailKampus() {
           <div className="col-lg-8" id="main">
             <div className="row border border-1">
               <div className="col p-3">
-                <ul
-                  className="nav nav-tabs justify-content-center"
-                  id="myTab"
-                  role="tablist"
-                >
+                <ul className="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                   <li className="nav-item" role="presentation">
                     <button
                       className="nav-link active"
@@ -110,12 +106,7 @@ export default function DetailKampus() {
                       <ProfilKampus {...campus} />
                     </div>
                   </div>
-                  <div
-                    className="tab-pane fade"
-                    id="fakultas-tab-pane"
-                    role="tabpanel"
-                    aria-labelledby="fakultas-tab"
-                  >
+                  <div className="tab-pane fade" id="fakultas-tab-pane" role="tabpanel" aria-labelledby="fakultas-tab">
                     <div className="row m-2">
                       {campus.faculties.map((faculty, key) => (
                         <div className="col-lg-6" key={key}>
@@ -124,12 +115,7 @@ export default function DetailKampus() {
                       ))}
                     </div>
                   </div>
-                  <div
-                    className="tab-pane fade"
-                    id="forum-tab-pane"
-                    role="tabpanel"
-                    aria-labelledby="forum-tab"
-                  >
+                  <div className="tab-pane fade" id="forum-tab-pane" role="tabpanel" aria-labelledby="forum-tab">
                     <div className="row m-3" id="navbar-example2">
                       <div className="col">
                         <textarea
@@ -141,11 +127,7 @@ export default function DetailKampus() {
                         ></textarea>
                         <div className="d-flex justify-content-end align-items-center mt-3">
                           <i className="fa-solid fa-camera fa-2xl me-2"></i>
-                          <button
-                            type="button"
-                            className="btn btn-primary"
-                            onClick={onSubmitThread}
-                          >
+                          <button type="button" className="btn btn-primary" onClick={onSubmitThread}>
                             Unggah
                           </button>
                         </div>
@@ -160,10 +142,7 @@ export default function DetailKampus() {
                     >
                       <div id="status">
                         {campus.threads.map((thread) => (
-                          <div
-                            className="row border bg-white mb-2"
-                            key={thread._id}
-                          >
+                          <div className="row border bg-white mb-2" key={thread._id}>
                             <ThreadKampus {...thread} />
                           </div>
                         ))}

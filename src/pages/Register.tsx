@@ -1,9 +1,4 @@
-import {
-  ChangeEventHandler,
-  FormEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEventHandler, FormEventHandler, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { register } from "../api/auth";
 import Layout from "../components/Layout";
@@ -61,9 +56,7 @@ export default function Register() {
                 </div>
                 <div className="col-md-6">
                   <div className="card-body">
-                    <h1 className="card-title">
-                      Daftar sekarang secara gratis!
-                    </h1>
+                    <h1 className="card-title">Daftar sekarang secara gratis!</h1>
                     <div className="card-text">
                       <div className="row">
                         <div className="col-12 my-2">
@@ -108,10 +101,7 @@ export default function Register() {
                           />
                         </div>
                         <div className="col-12 mt-1">
-                          <button
-                            className="btn btn-primary col-12"
-                            type="submit"
-                          >
+                          <button className="btn btn-primary col-12" type="submit">
                             Daftar
                           </button>
                           <p className="text-center text-muted mt-2">

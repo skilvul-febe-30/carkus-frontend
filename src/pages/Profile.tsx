@@ -75,10 +75,7 @@ export default function Profile() {
                 </div>
               </div>
             </Link> */}
-            <Link
-              className="col-12 text-decoration-none text-dark"
-              to="/logout"
-            >
+            <Link className="col-12 text-decoration-none text-dark" to="/logout">
               <div className="row align-items-center">
                 <div className="col-10">
                   <h5>

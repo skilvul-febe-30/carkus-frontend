@@ -1,9 +1,4 @@
-import {
-  ChangeEventHandler,
-  FormEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEventHandler, FormEventHandler, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { login } from "../api/auth";

@@ -1,12 +1,6 @@
 import type { Campus } from "../../../types/Campus";
 
-export default function ProfilKampus({
-  name,
-  address,
-  description,
-  status,
-  accreditation,
-}: Campus) {
+export default function ProfilKampus({ name, address, description, status, accreditation }: Campus) {
   return (
     <div className="col-12">
       <div className="short-detail border p-3 mb-3">

@@ -10,17 +10,14 @@ const initialState: CampusState = {
   campus: null,
 };
 
-export const fetchCampus = createAsyncThunk(
-  "campus/fetchCampus",
-  async (id: string) => {
-    try {
-      const response = await getCampusById(id);
-      return response.data;
-    } catch {
-      return null;
-    }
+export const fetchCampus = createAsyncThunk("campus/fetchCampus", async (id: string) => {
+  try {
+    const response = await getCampusById(id);
+    return response.data;
+  } catch {
+    return null;
   }
-);
+});
 
 const campus = createSlice({
   name: "campus",
