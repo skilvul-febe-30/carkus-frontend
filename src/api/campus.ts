@@ -28,3 +28,12 @@ export function updateCampus(id: string, campus: Partial<Campus>) {
     },
   });
 }
+
+export function deleteCampus(campusId: string) {
+  const token = store.getState().authState.token;
+  return axios.delete(`/campus/${campusId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}

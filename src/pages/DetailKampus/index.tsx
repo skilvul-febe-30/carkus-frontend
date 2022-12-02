@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { deleteCampus } from "../../api/campus";
 import { handleAuthError } from "../../api/handleAuthError";
 import { createThread } from "../../api/threads";
 import Layout from "../../components/Layout";
@@ -40,6 +41,16 @@ export default function DetailKampus() {
     navigate(`/edit/kampus/${campusId}`);
   }
 
+  async function deleteKampus() {
+    if (!confirm("Yakin mau hapus kampus ini?")) return;
+    try {
+      await deleteCampus(campusId);
+      navigate("/kampus");
+    } catch (err) {
+      handleAuthError(err);
+    }
+  }
+
   return (
     <Layout>
       <Nav />
@@ -48,7 +59,8 @@ export default function DetailKampus() {
           <div className="col-lg-4 border border-1 p-3">
             {campus.admin === userId && (
               <div className="d-flex justify-content-end">
-                <a className="fa-solid fa-edit p-2 ms-auto" onClick={editKampus}></a>
+                <a className="fa-solid fa-edit ms-auto" onClick={editKampus}></a>
+                <a className="fa-solid fa-trash ms-2" style={{ color: "red" }} onClick={deleteKampus}></a>
               </div>
             )}
             <InfoKampus {...campus} />
