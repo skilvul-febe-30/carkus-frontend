@@ -14,7 +14,6 @@ export default function ListKampus() {
   });
 
   useEffect(() => {
-    console.log("called");
     getCampus().then((res) => {
       setCampus(res.data);
     });

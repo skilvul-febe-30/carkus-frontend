@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
+import { handleAuthError } from "../../api/handleAuthError";
 import { createThread } from "../../api/threads";
 import Layout from "../../components/Layout";
 import Nav from "../../components/Nav";
@@ -13,8 +14,6 @@ import ThreadKampus from "./components/ThreadKampus";
 export default function DetailKampus() {
   const { campusId = "" } = useParams();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const token = useAppSelector((state) => state.authState.token);
   const campus = useAppSelector((state) => state.campusState.campus);
   const [threadContent, setThreadContent] = useState("");
 
@@ -24,17 +23,14 @@ export default function DetailKampus() {
 
   async function onSubmitThread() {
     setThreadContent("");
-    if (!token) {
-      return navigate("/login");
-    }
     try {
       await createThread(campusId, {
         title: "Title",
         content: threadContent,
       });
       dispatch(fetchCampus(campusId));
-    } catch {
-      alert("Thread gagal dibuat");
+    } catch (err) {
+      handleAuthError(err);
     }
   }
 

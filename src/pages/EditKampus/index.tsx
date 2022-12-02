@@ -1,6 +1,7 @@
 import { ChangeEventHandler, FormEventHandler, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { updateCampus } from "../../api/campus";
+import { handleAuthError } from "../../api/handleAuthError";
 import Layout from "../../components/Layout";
 import Nav from "../../components/Nav";
 import { useAppDispatch } from "../../hooks";
@@ -67,9 +68,8 @@ export default function EditKampus() {
       const faculties = formData.faculties.filter((faculty) => faculty.name !== "" && faculty.accreditation !== "");
       await updateCampus(campusId, { ...formData, faculties });
       navigate(`/kampus/${campusId}`);
-    } catch {
-      alert("Gagal menyimpan perubahan");
-      navigate(`/kampus/${campusId}`);
+    } catch (err) {
+      handleAuthError(err);
     }
   };
 
