@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { handleAuthError } from "../../api/handleAuthError";
 import { createThread } from "../../api/threads";
 import Layout from "../../components/Layout";
@@ -14,7 +14,9 @@ import ThreadKampus from "./components/ThreadKampus";
 export default function DetailKampus() {
   const { campusId = "" } = useParams();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const campus = useAppSelector((state) => state.campusState.campus);
+  const userId = useAppSelector((state) => state.authState.userId);
   const [threadContent, setThreadContent] = useState("");
 
   useEffect(() => {
@@ -34,12 +36,21 @@ export default function DetailKampus() {
     }
   }
 
+  function editKampus() {
+    navigate(`/edit/kampus/${campusId}`);
+  }
+
   return (
     <Layout>
       <Nav />
       {campus && (
         <div className="row g-4">
           <div className="col-lg-4 border border-1 p-3">
+            {campus.admin === userId && (
+              <div className="d-flex justify-content-end">
+                <a className="fa-solid fa-edit p-2 ms-auto" onClick={editKampus}></a>
+              </div>
+            )}
             <InfoKampus {...campus} />
           </div>
           <div className="col-lg-8" id="main">
