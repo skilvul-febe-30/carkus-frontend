@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
 
 function Profile() {
+  const uName = localStorage.getItem('name')
+  const uEmail = localStorage.getItem('email')
+  // console.log(user)
+  
+    const [user, setUser] = useState([]);
+    console.log(user)
+
+  const fetchData = () => {
+    return fetch("https://634840db0484786c6e95e220.mockapi.io/Data")
+          .then((response) => response.json())
+          .then((data) => setUser(data));
+  }
+
+  useEffect(() => {
+    fetchData();
+  },[])
+  
   return (
     <Layout>
       <Nav />
@@ -21,13 +38,19 @@ function Profile() {
                   <div className="col-12 col-lg-4">
                     <div className="row">
                       <div className="col-12">
-                        <h2>FIRSTNAME</h2>
+                        <ul>
+                        {user && user.length > 0 && user.filter((e)=>e.firstName===uName).map((userObj, index) => (
+                            <h3 key={userObj.id}>{userObj.firstName}</h3>
+                          ))}
+                      </ul>
                       </div>
                       <div className="col-12">
                         <div className="row">
                           <div className="col-6 col-lg-10">
                             <p className="text-muted fw-semi-bold">
-                              GMAIL USER
+                            {user && user.length > 0 && user.filter((e)=>e.email===uEmail).map((userObj, index) => (
+                            <h5 key={userObj.id}>{userObj.email}</h5>
+                          ))}
                             </p>
                           </div>
                         </div>
