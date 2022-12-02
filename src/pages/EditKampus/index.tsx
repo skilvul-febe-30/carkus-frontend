@@ -4,7 +4,7 @@ import { updateCampus } from "../../api/campus";
 import { handleAuthError } from "../../api/handleAuthError";
 import Layout from "../../components/Layout";
 import Nav from "../../components/Nav";
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { fetchCampus } from "../../redux/reducers/campus";
 import type { Faculty } from "../../types/Campus";
 import InputFakultas from "./components/InputFakultas";
@@ -13,6 +13,7 @@ export default function EditKampus() {
   const { campusId = "" } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const userId = useAppSelector((state) => state.authState.userId);
   const [btnDisabled, setBtnDisabled] = useState(false);
 
   useEffect(() => {
@@ -27,7 +28,11 @@ export default function EditKampus() {
           status,
           links: { website, instagram },
           imageUrl,
+          admin,
         } = res.payload;
+        if (!userId || admin !== userId) {
+          navigate(`/kampus/${campusId}`);
+        }
         setFormData({
           name,
           address,
