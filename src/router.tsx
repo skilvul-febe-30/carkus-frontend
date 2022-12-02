@@ -8,8 +8,8 @@ import Tentang from "./pages/Home/Tentang";
 import ListKampus from "./pages/ListKampus";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
-import Profile from "./pages/Profile";
 import Register from "./pages/Register";
+import UserProfile from "./pages/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile />,
+    element: <UserProfile />,
   },
   {
     path: "/kampus",

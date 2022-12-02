@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../hooks";
 import { logout } from "../redux/reducers/auth";
 import type { User } from "../types/User";
 
-export default function Profile() {
+export default function UserProfile() {
   const userId = useAppSelector((state) => state.authState.userId);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -55,7 +55,7 @@ export default function Profile() {
 
       <section className="container">
         <div className="row gy-5 align-items-center">
-          {/* <Link className="col-12 text-decoration-none text-dark" to="/editprofil">
+          <Link className="col-12 text-decoration-none text-dark" to="/create/kampus">
             <div className="row align-items-center">
               <div className="col-10">
                 <h5>
@@ -63,7 +63,7 @@ export default function Profile() {
                   <span className="bg-profile-icon py-2 px-3 rounded-08 text-white me-3">
                     <i className="far fa-user-edit"></i>
                   </span>{" "}
-                  Edit Profil
+                  Buat Akun Kampus
                 </h5>
               </div>
               <div className="col-2 text-end">
@@ -72,7 +72,7 @@ export default function Profile() {
                 </h5>
               </div>
             </div>
-          </Link> */}
+          </Link>
           <Link className="col-12 text-decoration-none text-dark" to="/logout">
             <div className="row align-items-center">
               <div className="col-10">
