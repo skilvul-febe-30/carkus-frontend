@@ -20,9 +20,19 @@ export function createThread(campusId: string, thread: Pick<Thread, "title" | "c
 }
 
 export function updateThread(campusId: string, threadId: string, thread: Partial<Thread>) {
-  return axios.put(`/campus/${campusId}/threads/${threadId}`, thread);
+  const token = store.getState().authState.token;
+  return axios.put(`/campus/${campusId}/threads/${threadId}`, thread, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }
 
 export function deleteThread(campusId: string, threadId: string) {
-  return axios.delete(`/campus/${campusId}/threads/${threadId}`);
+  const token = store.getState().authState.token;
+  return axios.delete(`/campus/${campusId}/threads/${threadId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }
