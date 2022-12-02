@@ -45,6 +45,7 @@ export default function ThreadKampus({ _id: threadId, content, createdAt, author
   }
 
   async function handleDelete() {
+    if (!confirm("Yakin mau hapus thread ini?")) return;
     try {
       await deleteThread(campusId, threadId);
       dispatch(fetchCampus(campusId));
@@ -70,7 +71,7 @@ export default function ThreadKampus({ _id: threadId, content, createdAt, author
             </span>
           </p>
           {authorId === userId ? (
-            <a className="fa-solid fa-trash p-2 ms-auto" onClick={handleDelete}></a>
+            <a className="fa-solid fa-trash p-2 ms-auto" style={{ color: "red" }} onClick={handleDelete}></a>
           ) : (
             <p className="p-2 ms-auto"> </p>
           )}

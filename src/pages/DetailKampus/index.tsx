@@ -145,7 +145,6 @@ export default function DetailKampus() {
                           onChange={(e) => setThreadContent(e.target.value)}
                         ></textarea>
                         <div className="d-flex justify-content-end align-items-center mt-3">
-                          <i className="fa-solid fa-camera fa-2xl me-2"></i>
                           <button type="button" className="btn btn-primary" onClick={onSubmitThread}>
                             Unggah
                           </button>
