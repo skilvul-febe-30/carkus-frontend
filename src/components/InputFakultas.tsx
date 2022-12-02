@@ -1,5 +1,5 @@
 import type { ChangeEventHandler } from "react";
-import type { Faculty } from "../../../types/Campus";
+import type { Faculty } from "../types/Campus";
 
 interface Props {
   faculty: Faculty;

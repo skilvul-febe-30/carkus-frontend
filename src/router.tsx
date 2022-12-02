@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import BuatKampus from "./pages/BuatKampus";
 import DetailKampus from "./pages/DetailKampus";
 import EditKampus from "./pages/EditKampus";
 import Home from "./pages/Home";
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
   {
     path: "/kampus/:campusId",
     element: <DetailKampus />,
+  },
+  {
+    path: "/create/kampus/",
+    element: <BuatKampus />,
   },
   {
     path: "/edit/kampus/:campusId",
